@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plateforme d'Investissement & Parrainage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="logo">TaskEarn</div>
+    <div id="userInfo" class="user-info">Non connecté</div>
+  </header>
+
+  <main class="container">
+
+    <!-- Formulaire d'inscription -->
+    <section id="registerSection" class="card">
+      <h2>Créer un compte</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label>Nom complet</label>
+          <input type="text" id="regName" required placeholder="Ex: Jean Dupont">
+        </div>
+        <div class="form-group">
+          <label>Numéro de téléphone (Tmoney / Flooz)</label>
+          <input type="tel" id="regPhone" required placeholder="Ex: 90000000">
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input type="password" id="regPassword" required>
+        </div>
+        <div class="form-group">
+          <label>Code de parrainage (Optionnel)</label>
+          <input type="text" id="regRefCode" placeholder="Ex: TE-12345">
+        </div>
+        <button type="submit" class="btn primary">S'inscrire</button>
+      </form>
+    </section>
+
+    <!-- Tableau de bord utilisateur (masqué par défaut) -->
+    <section id="dashboardSection" class="card hidden">
+      <div class="dashboard-header">
+        <h2>Mon Tableau de Bord</h2>
+        <span id="accountStatus" class="badge unverified">Compte non vérifié</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <h3>Solde Portefeuille</h3>
+          <p id="walletBalance">0 FCFA</p>
+        </div>
+        <div class="stat-box">
+          <h3>Mon Code Parrain</h3>
+          <p id="myRefCode">TE-XXXXX</p>
+        </div>
+      </div>
+
+      <!-- Alerte dépôt obligatoire -->
+      <div id="depositNotice" class="alert warning">
+        <p><strong>Activation requise :</strong> Effectuez un dépôt minimum de 2000 FCFA via Tmoney ou Flooz pour vérifier votre compte et débloquer les tâches quotidiennes et le parrainage.</p>
+        <button id="showDepositBtn" class="btn secondary">Faire un dépôt</button>
+      </div>
+
+      <!-- Formulaire de dépôt -->
+      <div id="depositFormContainer" class="deposit-box hidden">
+        <h3>Effectuer un dépôt</h3>
+        <p class="instruction">Envoyez votre dépôt au numéro suivant : <strong>+228 90 XX XX XX (Tmoney)</strong></p>
+        <form id="depositForm">
+          <div class="form-group">
+            <label>Montant (FCFA)</label>
+            <input type="number" id="depositAmount" min="2000" value="2000" required>
+          </div>
+          <div class="form-group">
+            <label>Capture d'écran du paiement</label>
+            <input type="file" id="depositScreenshot" accept="image/*" required>
+          </div>
+          <button type="submit" class="btn primary">Soumettre le dépôt</button>
+        </form>
+      </div>
+
+      <!-- Section Tâches quotidiennes -->
+      <div class="tasks-section">
+        <h3>Tâche du jour</h3>
+        <button id="dailyTaskBtn" class="btn success" disabled>Exécuter ma tâche quotidienne</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
